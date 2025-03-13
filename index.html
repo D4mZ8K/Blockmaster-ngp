@@ -23,7 +23,7 @@
   </div>
 
   <!-- Load the game script -->
-  <script src="script.js"></script>
+  <script src="game.py"></script>
   
   <!-- Inline script for login functionality -->
   <script>
@@ -36,7 +36,7 @@
         // Hide the login form and show the game container
         document.getElementById("login-container").style.display = "none";
         document.getElementById("game-container").style.display = "block";
-        startGame();  // Call the game start function from script.js
+        startGame();  // Call the game start function from game.py
       } else {
         document.getElementById("error-message").textContent = "Incorrect credentials, please try again.";
       }
