@@ -1,26 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BlockBlast Login</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BlockBlast Login</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="login-container">
-        <h2>Login</h2>
-        <input type="text" id="username" placeholder="Username..?" required>
-        <input type="password" id="password" placeholder="Password...?" required>
-        <button onclick="checkLogin()">Enter</button>
-        <p id="error-message"></p>
-    </div>
+  <!-- Login Form -->
+  <div id="login-container">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username..?" required>
+    <input type="password" id="password" placeholder="Password...?" required>
+    <button onclick="checkLogin()">Enter</button>
+    <p id="error-message" style="color: red;"></p>
+  </div>
 
-    <div id="game-container" style="display: none;">
-        <h2>BlockBlast</h2>
-        <canvas id="gameCanvas"></canvas>
-        <script src="blockblast.js"></script>
-    </div>
+  <!-- Game Container (Hidden until login) -->
+  <div id="game-container" style="display: none;">
+    <h2>BlockBlast</h2>
+    <canvas id="gameCanvas"></canvas>
+  </div>
 
-    <script src="script.js"></script>
+  <!-- Load the game script -->
+  <script src="script.js"></script>
+  
+  <!-- Inline script for login functionality -->
+  <script>
+    function checkLogin() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      
+      // Check credentials
+      if (username === "admin_isa" && password === "4aPTaH110866D4mZ8K") {
+        // Hide the login form and show the game container
+        document.getElementById("login-container").style.display = "none";
+        document.getElementById("game-container").style.display = "block";
+        startGame();  // Call the game start function from script.js
+      } else {
+        document.getElementById("error-message").textContent = "Incorrect credentials, please try again.";
+      }
+    }
+  </script>
 </body>
 </html>
